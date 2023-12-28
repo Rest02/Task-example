@@ -1,9 +1,9 @@
-import { Tasklist } from "./Tasklist";
+import {ListaTareas} from "./Tasklist"
 
 export function App() {
   return (
     <div>
-      <Tasklist />
+      <ListaTareas/>
     </div>
   );
 }
