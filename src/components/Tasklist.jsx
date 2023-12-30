@@ -4,7 +4,7 @@ export function ListaTareas({tasks}) {
   return (
     <div>
       {tasks.map((task) => (
-        <TaskCard task={task}/>
+        <TaskCard key={task.id} task={task}/>
       ))}
     </div>
   );
