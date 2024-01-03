@@ -1,15 +1,15 @@
-import CardTask from "./CardTask";
+import TaskCard from './TaskCard'
+import {TaskContext} from '../context/TaskContext'
+import { useContext } from 'react';
 
-function ListarTareas({ tasks, deleteTask }) {
-
-  if(tasks.length == 0){
-    return <h1>No hay datos...</h1>
-  }
-
+function ListarTareas() {
+  
+  const {tasks} = useContext(TaskContext)
+  
   return (
     <div>
       {tasks.map((e) => (
-        <CardTask e={e} key={e.id} deleteTask={deleteTask} />
+        <TaskCard e = {e} key={e.id}/>
       ))}
     </div>
   );

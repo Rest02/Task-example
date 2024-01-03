@@ -1,35 +1,33 @@
-import React, { useState } from "react";
-// import {TaskContext} from '../context/TaskContext'
+import React, { useState, useContext} from "react";
+import {TaskContext} from '../context/TaskContext'
 
-function FormTarea({ createTask }) {
+
+function FormTarea() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const {createTask} = useContext(TaskContext)
 
-  // const x = useContext(TaskContext)
-  // console.log(x)
-
-
-  const eventHandler = (e) => {
-    e.preventDefault();
-    const newTask = {
-      title,
-      description,
-    };
-    createTask(newTask);
-    setTitle("");
-    setDescription("");
-  };
+    const eventHandler = (e)=>{
+        e.preventDefault()
+        const newTask = {
+            title, 
+            description
+        }
+        createTask(newTask)
+        setTitle("")
+        setDescription("")
+    }
 
   return (
     <form onSubmit={eventHandler}>
       <input
-        placeholder="Ingresa el titulo de tu tarea"
+        placeholder="Ingresa tu titulo"
         onChange={(e) => setTitle(e.target.value)}
         value={title}
         autoFocus
       />
       <textarea
-        placeholder="Ingresa la descripcion de la tarea"
+        placeholder="Ingresa la descripcion de tu tarea"
         onChange={(e) => setDescription(e.target.value)}
         value={description}
       ></textarea>
